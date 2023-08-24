@@ -105,7 +105,7 @@ const Pokedex = (function () {
 
       const pokemonimg = document.createElement('img');
       pokemonimg.id = 'imgpokemon';
-      pokemonimg.src = detallesPokemon.sprites.other.home.front_default;
+      pokemonimg.src = detallesPokemon.sprites.front_default;
       pokemonimg.alt = pokemon.name;
 
       const pokemonName = document.createElement('p');
