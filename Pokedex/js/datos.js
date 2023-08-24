@@ -81,9 +81,9 @@ const Pokedex = (function () {
       cartaPoke.appendChild(pokemonimg);
       cartaPoke.appendChild(pokemonName);
       
-      // Adding the card to a div with margins
+      
       const cardContainer = document.createElement('div');
-      cardContainer.className = 'pokemon-card-container'; // Add your desired class for margins
+      cardContainer.className = 'pokemon-card-container'; 
       cardContainer.appendChild(cartaPoke);
       
       contenedorPoke.appendChild(cardContainer);
