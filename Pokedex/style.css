@@ -5,6 +5,11 @@
     grid-gap: 20px;
     margin: 2%
   }
+  #blur.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+  }
   video {
     width: 100%;
     height: auto;

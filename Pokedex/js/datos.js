@@ -135,7 +135,6 @@ const Pokedex = (function () {
   }
 
   function mostrarDetalles(pokemon, tipo, color) {
-  
     const infoPoke = `
       <div style="background-color: ${color};">
       <img src="${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}" alt="${pokemon.name}" id="imgpokemon">
@@ -149,11 +148,13 @@ const Pokedex = (function () {
   
     detallesPoke.innerHTML = infoPoke;
     detallesPoke.style.right = '0';
-  
+    
     const btnCerrar = detallesPoke.querySelector('.btnCerrar');
     btnCerrar.addEventListener('click', () => {
       CerrarDetalles();
+      efectoBlur()
     });
+    efectoBlur()
   }
   
   function CerrarDetalles() {
@@ -161,7 +162,11 @@ const Pokedex = (function () {
     detallesPoke.style='hidden'
     detallesPoke.innerHTML = '';
   }
-  
+
+  function efectoBlur() {
+    const blur = document.getElementById('blur')
+    blur.classList.toggle('active')
+  }
 
   return {
     cartaPokemon: cartaPokemon
