@@ -24,6 +24,8 @@ const Pokedex = (function () {
 
       const tipoPokemon = detallesPokemon.types[0].type.name;
 
+    
+
 
       switch (tipoPokemon) {
         case 'grass':
@@ -103,6 +105,8 @@ const Pokedex = (function () {
           break;
       }
 
+
+      
       const pokemonimg = document.createElement('img');
       pokemonimg.id = 'imgpokemon';
       pokemonimg.src = detallesPokemon.sprites.front_default;
