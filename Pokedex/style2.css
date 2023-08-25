@@ -20,6 +20,22 @@ body {
 }
 
 
+
+.intro {
+    margin: 0 auto;
+    position: relative;
+    max-width: 1000px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.intro video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 header {
     background-color: #4f2dd6;
     color: white;
