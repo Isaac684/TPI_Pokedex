@@ -188,3 +188,105 @@ button:hover {
   padding: 10px;
   cursor: pointer;
 }
+
+.opcion{
+
+  background-color: #000000;
+  width: 80px;
+  height: auto;
+  padding: 15px;
+  justify-content: space-around;
+}
+.opcion:hover{
+  background-color: #0b8216;
+}
+
+
+.info-stat{
+background-color: #2d2d2d;
+width: 100px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+text-align: justify;
+width: var(--total);
+  
+overflow: auto;  
+border: 1px solid #ccc; 
+
+}
+
+
+
+
+.stat-bar-container {
+  display: flex;
+  
+  justify-content: flex-end;
+}
+
+.stat-bar {
+  height: 7px;
+  margin-left: 152px;
+}
+
+.info-stat {
+
+  background-color: #141313;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  
+ 
+}
+
+
+
+
+.info-stat h3 {
+  margin-top: 5px;
+}
+
+.info-stat .stat-bar.hp-bar {
+  background-color: rgb(140, 5, 5);
+}
+
+.info-stat .stat-bar.attack-bar,
+.info-stat .stat-bar.spAttack-bar,
+.info-stat .stat-bar.spDefense-bar {
+  background-color: rgb(25, 114, 14);
+}
+
+.info-stat .stat-bar.defense-bar,
+.info-stat .stat-bar.speed-bar,
+.info-stat .total-bar {
+  background-color: rgb(140, 5, 5);
+}
+
+.hp-bar { width: var(--hp); }
+.attack-bar { width: var(--attack); }
+.spAttack-bar { width: var(--spAttack); }
+.spDefense-bar { width: var(--spDefense); }
+.defense-bar { width: var(--defense); }
+.speed-bar { width: var(--speed); }
+.total-bar { width: var(--total); }
+
+
+
+
+.stat-line {
+  display: flex;
+  align-items: center; 
+}
+
+.stat-label,
+.stat-value,
+.stat-bar {
+  margin: 0;
+  padding: 0;
+  border: none; 
+}
+
+
+.stat-label,
+.stat-value {
+  width: 100px; 
+}
