@@ -109,8 +109,20 @@ const Pokedex = (function () {
       const pokemonName = document.createElement('p');
       pokemonName.textContent = pokemon.name;
 
+      const pokemonAltura = document.createElement('p');
+      pokemonAltura.textContent = `Altura: ${detallesPokemon.height/ 10} m`;
+
+      const pokemonPeso = document.createElement('p');
+      pokemonPeso.textContent = `Peso: ${detallesPokemon.weight/10} kg`;
+
+      const pokemonTipo = document.createElement('p');
+      pokemonTipo.textContent = `Tipo: ${tipo}`;
+
       cartaPoke.appendChild(pokemonimg);
       cartaPoke.appendChild(pokemonName);
+      cartaPoke.appendChild(pokemonAltura)
+      cartaPoke.appendChild(pokemonPeso)
+      cartaPoke.appendChild(pokemonTipo)
 
       const cardContainer = document.createElement('div');
       cardContainer.className = 'pokemon-card-container';
@@ -133,9 +145,6 @@ const Pokedex = (function () {
         <img src="${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}" alt="${pokemon.name}" id="imgpokemon" style="max-width: 100%; height: auto;">
       </div>
       <h2 style="margin-top: 10px;">${pokemon.name}</h2>
-      <p>Altura: ${(pokemon.height) / 10} m</p>
-      <p>Peso: ${pokemon.weight / 10} kg</p>
-      <p>Tipo: ${tipo}</p>
       <div id="menu" style="margin-top: 10px;">
         <button id="btnCerrar" class="btnCerrar" style="background-color: #333; color: white; padding: 5px 10px; border: none; cursor: pointer;">Cerrar</button>
         <button id="opcion1" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Stats</button>
@@ -188,43 +197,43 @@ const Pokedex = (function () {
     const total = stats.reduce((acu, stat) => acu + stat.base_stat, 0); //luego utilizamos reduce para obtener la info almacenada en base_Stat para sumarla
    
     const info = `
-  <div class="info-stat">
-    <h3 style="text-align:center;padding:15px;" >ESTADISTICAS</h3>
+    <div class="info-stat">
+      <h3 style="text-align:center;padding:15px;" >ESTADISTICAS</h3>
     <div class="stat-line">
       <span class="stat-label">HP:</span>
       <span class="stat-value">${hp}</span>
-      <div class="stat-bar hp-bar" style="--hp: ${((hp/106)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar hp-bar" style="--hp: ${((hp/200)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Ataque:</span>
       <span class="stat-value">${attack}</span>
-      <div class="stat-bar attack-bar" style="--attack: ${((attack/110)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar attack-bar" style="--attack: ${((attack/200)*100).toFixed(2)}%;"></div>
     </div>
     
     <div class="stat-line">  
       <span class="stat-label">Defensa:</span>
       <span class="stat-value">${defense}</span>
-      <div class="stat-bar defense-bar" style="--defense: ${((defense/90)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar defense-bar" style="--defense: ${((defense/200)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Ataque Especial:</span>
       <span class="stat-value">${spAttack}</span>
-      <div class="stat-bar spAttack-bar" style="--spAttack: ${((spAttack/154)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar spAttack-bar" style="--spAttack: ${((spAttack/200)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Defensa Especial:</span>
       <span class="stat-value">${spDefense}</span>
-      <div class="stat-bar spDefense-bar" style="--spDefense: ${((spDefense/90)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar spDefense-bar" style="--spDefense: ${((spDefense/200)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Velocidad:</span>
       <span class="stat-value">${speed}</span>
-      <div class="stat-bar speed-bar" style="--speed: ${((speed/130)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar speed-bar" style="--speed: ${((speed/200)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span style="margin-rignt:3px;" class="stat-label">Total:</span>
       <span class="stat-value">${total}</span>
-      <div class="stat-bar total-bar" style="--total: ${((total/680)*100).toFixed(2)}%;"></div>
+      <div class="stat-bar total-bar" style="--total: ${((total/700)*100).toFixed(2)}%;"></div>
     </div>
   </div>
 `;
