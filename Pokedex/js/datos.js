@@ -141,7 +141,7 @@ const Pokedex = (function () {
         <button id="opcion1" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Stats</button>
         <button id="opcion2" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Moves</button>
       </div>
-      <div id="infoContainer" style="display: flex; justify-content: space-between; margin-top: 20px;">
+      <div id="infoContainer" style=" margin-top: 20px;">
         <div id="Info1" style="flex: 1; padding: 10px;"></div>
         <div id="Info2" style="flex: 1; padding: 10px;"></div>
       </div>
@@ -186,45 +186,45 @@ const Pokedex = (function () {
     const spDefense = stats.find(stat => stat.stat.name === 'special-defense').base_stat;
     const speed = stats.find(stat => stat.stat.name === 'speed').base_stat;
     const total = stats.reduce((acu, stat) => acu + stat.base_stat, 0); //luego utilizamos reduce para obtener la info almacenada en base_Stat para sumarla
-  
+   
     const info = `
   <div class="info-stat">
     <h3 style="text-align:center;padding:15px;" >ESTADISTICAS</h3>
     <div class="stat-line">
       <span class="stat-label">HP:</span>
       <span class="stat-value">${hp}</span>
-      <div class="stat-bar hp-bar" style="--hp: ${hp}px;"></div>
+      <div class="stat-bar hp-bar" style="--hp: ${((hp/106)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Ataque:</span>
       <span class="stat-value">${attack}</span>
-      <div class="stat-bar attack-bar" style="--attack: ${attack}px;"></div>
+      <div class="stat-bar attack-bar" style="--attack: ${((attack/110)*100).toFixed(2)}%;"></div>
     </div>
     
     <div class="stat-line">  
       <span class="stat-label">Defensa:</span>
       <span class="stat-value">${defense}</span>
-      <div class="stat-bar defense-bar" style="--defense: ${defense}px;"></div>
+      <div class="stat-bar defense-bar" style="--defense: ${((defense/90)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Ataque Especial:</span>
       <span class="stat-value">${spAttack}</span>
-      <div class="stat-bar spAttack-bar" style="--spAttack: ${spAttack}px;"></div>
+      <div class="stat-bar spAttack-bar" style="--spAttack: ${((spAttack/154)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Defensa Especial:</span>
       <span class="stat-value">${spDefense}</span>
-      <div class="stat-bar spDefense-bar" style="--spDefense: ${spDefense}px;"></div>
+      <div class="stat-bar spDefense-bar" style="--spDefense: ${((spDefense/90)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span class="stat-label">Velocidad:</span>
       <span class="stat-value">${speed}</span>
-      <div class="stat-bar speed-bar" style="--speed: ${speed}px;"></div>
+      <div class="stat-bar speed-bar" style="--speed: ${((speed/130)*100).toFixed(2)}%;"></div>
     </div>
     <div class="stat-line">
       <span style="margin-rignt:3px;" class="stat-label">Total:</span>
       <span class="stat-value">${total}</span>
-      <div class="stat-bar total-bar" style="--total: ${total}px;"></div>
+      <div class="stat-bar total-bar" style="--total: ${((total/680)*100).toFixed(2)}%;"></div>
     </div>
   </div>
 `;

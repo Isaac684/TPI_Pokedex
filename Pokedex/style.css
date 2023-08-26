@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   text-align: center;
   position: fixed;
   top: 50%;
@@ -224,8 +224,8 @@ border: 1px solid #ccc;
 }
 
 .stat-bar {
-  height: 7px;
-  margin-left: 152px;
+  height: 12px;
+  max-width: 100%;
 }
 
 .info-stat {
@@ -273,7 +273,8 @@ border: 1px solid #ccc;
 
 
 .stat-line {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
   align-items: center; 
 }
 
