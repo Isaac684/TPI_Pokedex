@@ -184,9 +184,34 @@ const Pokedex = (function () {
     efectoBlur();
   }
   
+  function mostrarOpcion2Info(infoDiv, pokemon){
+    let numberAbility = 1;
+    const ability = pokemon.abilities;
+    let info1 ="";
+    ability.forEach(ab=>{
+      console.log(ab.ability.name)
+      info1 += `
+    <div class="stat-line">
+      <span class="stat-label">${numberAbility}</span>
+      <span class="stat-value">${ab.ability.name}</span>
+    </div>
+`;
+numberAbility++;
+    })
+    let info = `
+    <div class="info-stat">
+    <h3 style="text-align:center;padding:15px;" >HABILIDADES</h3>
+  `+info1;
+  info += '<div>'
+  console.log(info)
+
+infoDiv.innerHTML = info;
+  }
   
   function mostrarOpcion1Info(infoDiv, pokemon) {
     //creo una funcion, luego una variable para obtener las stats 
+    console.log(pokemon.abilities)
+    console.log(pokemon)
     const stats = pokemon.stats;
     const hp = stats.find(stat => stat.stat.name === 'hp').base_stat;  //con find obtenemos los valores individuales de cada estadistica
     const attack = stats.find(stat => stat.stat.name === 'attack').base_stat;
