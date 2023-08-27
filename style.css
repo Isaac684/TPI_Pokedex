@@ -13,7 +13,12 @@
   max-width: 1200px;
 
 }
-
+.container2{
+  background-color: #5e5c5c;
+  width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 .contenedor:hover {
   box-shadow: 0px 0px 20px rgba(90, 82, 82, 0.5);
 }
