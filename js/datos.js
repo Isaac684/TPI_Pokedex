@@ -117,12 +117,23 @@ const Pokedex = (function () {
 
       const pokemonTipo = document.createElement('p');
       pokemonTipo.textContent = `Tipo: ${tipo}`;
+      const habilidadPoke = document.createElement("p");
+      habilidadPoke.textContent = "Habilidades:"
 
       cartaPoke.appendChild(pokemonimg);
       cartaPoke.appendChild(pokemonName);
       cartaPoke.appendChild(pokemonAltura)
       cartaPoke.appendChild(pokemonPeso)
       cartaPoke.appendChild(pokemonTipo)
+      cartaPoke.appendChild(habilidadPoke);
+
+      const abilities = detallesPokemon.abilities;
+      abilities.forEach(ab =>{
+        const ability = document.createElement("p");
+        ability.textContent = ab.ability.name;
+        cartaPoke.appendChild(ability);
+      })
+
 
       const cardContainer = document.createElement('div');
       cardContainer.className = 'pokemon-card-container';
@@ -175,39 +186,66 @@ const Pokedex = (function () {
       mostrarOpcion1Info(InfoDiv1, pokemon); //creo el evento del  boton click y le paso un metodo que este mostrara la info de stats
       InfoDiv2.innerHTML = '';  //recibe dos parametros
     });
-  
+    //Se declaran las variables para la paginacion de los movimientos 
+    const itemsPorPagina = 10;//Es la cantidad de moves que se mostraran por pagina
+    let pagActual = 1//La pagina que se esta mostrardo
     opcion2.addEventListener('click', () => {
-      mostrarOpcion2Info(InfoDiv2, pokemon); //lo mismo para el metodo de moves
+      mostrarOpcion2Info(InfoDiv2, pokemon,itemsPorPagina,pagActual); //lo mismo para el metodo de moves
       InfoDiv1.innerHTML = ''; 
     });
   
     efectoBlur();
   }
-  
-  function mostrarOpcion2Info(infoDiv, pokemon){
-    let numberAbility = 1;
-    const ability = pokemon.abilities;
-    let info1 ="";
-    ability.forEach(ab=>{
-      console.log(ab.ability.name)
-      info1 += `
-    <div class="stat-line">
-      <span class="stat-label">${numberAbility}</span>
-      <span class="stat-value">${ab.ability.name}</span>
-    </div>
-`;
-numberAbility++;
-    })
-    let info = `
-    <div class="info-stat">
-    <h3 style="text-align:center;padding:15px;" >HABILIDADES</h3>
-  `+info1;
-  info += '<div>'
-  console.log(info)
 
-infoDiv.innerHTML = info;
-  }
+  function mostrarOpcion2Info(infoDiv, pokemon, itemsPorPagina, pagActual){
+    const moves = pokemon.moves;
+    const pagTotales = Math.ceil(moves.length / itemsPorPagina);//Se hace el calculo del total de la paginas
+    const inicio = (pagActual - 1) * itemsPorPagina;//Se calcula el indice de inicio
+    const final = Math.min(inicio + itemsPorPagina, moves.length);//calcula el índice final para la porción de datos que se mostrará en la página actual
   
+    let info1 = "";
+    for (let i = inicio; i < final; i++) {
+      const mv = moves[i];//Se toma la posicion del movimiento para ser mostrado en el html
+      info1 += `
+        <div class="stat-line">
+          <span class="stat-label">${i + 1}</span>
+          <span class="stat-value">${mv.move.name}</span>
+        </div>
+      `;
+    }
+  
+    let info = `
+      <div class="info-stat">
+        <h3 style="text-align:center;padding:15px;" >Movimientos</h3>
+        ${info1}
+      </div>
+    `;
+  
+    const paginas = `
+      <div>
+        <button accion-pag="anterior"><<</button>
+        <span>Pagina ${pagActual} de ${pagTotales}</span>
+        <button accion-pag="siguiente">>></button>
+      </div>
+    `;
+  
+    infoDiv.innerHTML = info + paginas;//Se agrega la informacion al div
+
+    const btnsPaginacion = document.querySelectorAll("[accion-pag]");//Se obtinen los botones
+    btnsPaginacion.forEach((boton) =>{//Se recorre el arreglo de los botones para asignales el evento click
+      boton.addEventListener("click", () =>{
+        const accion = boton.getAttribute("accion-pag");//Se obtiene la informacion del atributo accion-pag
+        if(accion === "siguiente" && pagActual < pagTotales){//Se verifica si este es igual a siguiente y que la
+          pagActual++;                                       //pagina actual sea menor que el total de paginas
+        }else if(accion === "anterior" && pagActual >1){
+          pagActual--;
+        }
+        //Una vez ya actualizada la pagina actual se llama la funcion mostrarOpcion2Info para que la pagina mostrada sea la correspondiente
+        mostrarOpcion2Info(infoDiv, pokemon, itemsPorPagina, pagActual);
+      });
+    });
+}
+
   function mostrarOpcion1Info(infoDiv, pokemon) {
     //creo una funcion, luego una variable para obtener las stats 
     console.log(pokemon.abilities)
