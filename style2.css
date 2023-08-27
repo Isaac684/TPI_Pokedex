@@ -156,11 +156,41 @@ nav a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%; /* Puedes ajustar según tus necesidades */
+    width: 80%; 
     padding: 10px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.2);
-    transform: translate(-50%, -50%); /* Esta propiedad desplaza el elemento hacia atrás en un 50% de su propia anchura y altura, lo que lo centra perfectamente. */
+    transform: translate(-50%, -50%); 
+
 }
 
+
+.btn, .btn2 {
+    padding: 10px 15px;
+    font-size: 16px;
+    display: block;
+    margin: 5px;
+   
+}
+
+
+
+
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .btn, .btn2 {
+    
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .btn, .btn2 {
+       
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
 
