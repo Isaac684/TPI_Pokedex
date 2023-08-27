@@ -155,8 +155,10 @@ const Pokedex = (function () {
       <div id="menu" style="margin-top: 10px;">
         <button id="btnCerrar" class="btnCerrar" style="background-color: #333; color: white; padding: 5px 10px; border: none; cursor: pointer;margin-bottom: 2rem;">Cerrar</button>
       </div>
-      <div class="pokestatsImg" style="background-color: ${color+"D0"};">
-        <img src="${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}" alt="${pokemon.name}" id="imgpokemon" style="max-width: 100%; height: auto; opacity: 100%;">
+      <div class="pokestatsImg" style="background-color: ${color+"D0"}">
+        <div class="pokebola"></div>
+        <div class="lineaCentral"></div>
+        <img src="${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}" alt="${pokemon.name}" id="imgpokemon">
       </div>
       <h2 style="margin-top: 10px;">${pokemon.name}</h2>
       <div id="infoContainer" style=" margin-top: 5px;">
