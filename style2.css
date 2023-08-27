@@ -174,8 +174,14 @@ nav a:hover {
 }
 
 
+.busqueda{
+    width: 150px;
+    height: auto;
+    margin: 0 auto ;
+    justify-content: center;
+    text-align: center;
 
-
+}
 
 
 
