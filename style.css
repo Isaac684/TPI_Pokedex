@@ -11,6 +11,7 @@
   margin-bottom: 2em;
   box-sizing: border-box;
   max-width: 1200px;
+
 }
 
 .contenedor:hover {
@@ -21,6 +22,9 @@
   filter: blur(10px);
   pointer-events: none;
   user-select: none;
+}
+.pokestatsImg{
+  width: 100%;
 }
 
 .intro {
@@ -33,6 +37,7 @@
   position: fixed;
   clip-path: circle(150% at 100% 0);
   transition: clip-path 0.3s ease-in-out;
+  
 }
 
 .introSalida {
@@ -82,6 +87,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   z-index: 999;
+  max-height: 90vh;
 }
 
 .btnCerrar {
@@ -226,6 +232,17 @@ border: 1px solid #ccc;
   max-width: 100%;
 }
 
+.info-stat-move {
+  max-height: 50vh;
+  margin-bottom: 1vh;
+  background-color: #141313;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* inicialmente invisible */
+  transform: translateY(30px); /* posición inicial 30px abajo de donde debería estar */
+  animation: fadeInMoveUp 2s forwards; /* Llamada a la animación */
+}
 .info-stat {
   background-color: #141313;
   padding: 15px;
@@ -235,7 +252,6 @@ border: 1px solid #ccc;
   transform: translateY(30px); /* posición inicial 30px abajo de donde debería estar */
   animation: fadeInMoveUp 2s forwards; /* Llamada a la animación */
 }
-
 @keyframes fadeInMoveUp {
   0% {
     opacity: 0;
@@ -280,7 +296,11 @@ border: 1px solid #ccc;
   grid-template-columns: 1fr 1fr 3fr;
   align-items: center; 
 }
-
+.stat-line-move {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  align-items: center; 
+}
 .stat-label,
 .stat-value,
 .stat-bar {

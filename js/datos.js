@@ -152,16 +152,16 @@ const Pokedex = (function () {
 
   function mostrarDetalles(pokemon, tipo, color) {
     const infoPoke = `
-      <div style="background-color: ${color};">
+      <div id="menu" style="margin-top: 10px;">
+        <button id="btnCerrar" class="btnCerrar" style="background-color: #333; color: white; padding: 5px 10px; border: none; cursor: pointer;margin-bottom: 2rem;">Cerrar</button>
+      </div>
+      <div class="pokestatsImg" style="background-color: ${color};">
         <img src="${pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}" alt="${pokemon.name}" id="imgpokemon" style="max-width: 100%; height: auto;">
       </div>
       <h2 style="margin-top: 10px;">${pokemon.name}</h2>
-      <div id="menu" style="margin-top: 10px;">
-        <button id="btnCerrar" class="btnCerrar" style="background-color: #333; color: white; padding: 5px 10px; border: none; cursor: pointer;">Cerrar</button>
-        <button id="opcion1" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Stats</button>
-        <button id="opcion2" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Moves</button>
-      </div>
-      <div id="infoContainer" style=" margin-top: 20px;">
+      <div id="infoContainer" style=" margin-top: 5px;">
+      <button id="opcion1" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Stats</button>
+      <button id="opcion2" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Moves</button>
         <div id="Info1" style="flex: 1; padding: 10px;"></div>
         <div id="Info2" style="flex: 1; padding: 10px;"></div>
       </div>
@@ -207,7 +207,7 @@ const Pokedex = (function () {
     for (let i = inicio; i < final; i++) {
       const mv = moves[i];//Se toma la posicion del movimiento para ser mostrado en el html
       info1 += `
-        <div class="stat-line">
+        <div class="stat-line-move">
           <span class="stat-label">${i + 1}</span>
           <span class="stat-value">${mv.move.name}</span>
         </div>
@@ -215,8 +215,8 @@ const Pokedex = (function () {
     }
   
     let info = `
-      <div class="info-stat">
-        <h3 style="text-align:center;padding:15px;" >Movimientos</h3>
+      <div class="info-stat-move">
+        <h3 style="text-align:center;padding-top:5px;" >Movimientos</h3>
         ${info1}
       </div>
     `;
