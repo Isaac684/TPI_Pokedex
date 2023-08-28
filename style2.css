@@ -9,10 +9,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 .container{
-    background-color: rgb(221, 217, 217);
+    background-color: rgb(65, 64, 64);
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 }
 
 header {
-    background-color: #4f2dd6;
+    background-color: #000000;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -46,8 +47,10 @@ header {
 
 
 nav {
-    background-color: #5e5c5c;
+    font-family: fantasy;
+    background-color: #141033;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 nav ul {
@@ -57,6 +60,15 @@ nav ul {
     display: flex;
     justify-content: center;
 }
+
+.titulo{
+    padding: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    
+}
+
+
 
 nav li {
     margin: 0 15px;
@@ -70,7 +82,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ff9900;
+    background-color: #18b215;
 }
 
 .container {
@@ -174,14 +186,23 @@ nav a:hover {
 
 }
 
+.anima {
+    
+    
+    position: relative;
+    animation: levitar 4s ease-in-out infinite;
+  }
 
-
-@media (min-width: 1367px) {
-    .btn, .btn2 {
-        padding: 12px 18px;
-        font-size: 18px;
+  @keyframes levitar{
+    0%, 100% {
+      transform: translateY(0);
     }
-}
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  
 
 
 @media (min-width: 1025px) and (max-width: 1366px) {
