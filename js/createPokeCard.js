@@ -3,11 +3,7 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
     let tipo, color;
       const cartaPoke = document.createElement('div');
       cartaPoke.className = 'pokemon-card';
-
-      const pedirPokemon = await fetch(pokemon.url);
-      const detallesPokemon = await pedirPokemon.json();
-
-      const tipoPokemon = detallesPokemon.types[0].type.name;
+      const tipoPokemon = pokemon.types[0].type.name;
 
       switch (tipoPokemon) {
         case 'grass':
@@ -89,7 +85,7 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
 
       const pokemonimg = document.createElement('img');
       pokemonimg.id = 'imgpokemon';
-      pokemonimg.src = detallesPokemon.sprites.front_default;
+      pokemonimg.src = pokemon.sprites.front_default;
       pokemonimg.alt = pokemon.name;
 
       const pokemonName = document.createElement('p');
@@ -97,10 +93,10 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       pokemonName.textContent = pokemon.name;
 
       const pokemonAltura = document.createElement('p');
-      pokemonAltura.textContent = `Altura: ${detallesPokemon.height/ 10} m`;
+      pokemonAltura.textContent = `Altura: ${pokemon.height/ 10} m`;
 
       const pokemonPeso = document.createElement('p');
-      pokemonPeso.textContent = `Peso: ${detallesPokemon.weight/10} kg`;
+      pokemonPeso.textContent = `Peso: ${pokemon.weight/10} kg`;
 
       const pokemonTipo = document.createElement('p');
       pokemonTipo.textContent = `Tipo: ${tipo}`;
@@ -114,7 +110,7 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       cartaPoke.appendChild(pokemonTipo)
       cartaPoke.appendChild(habilidadPoke);
 
-      const abilities = detallesPokemon.abilities;
+      const abilities = pokemon.abilities;
       abilities.forEach(ab =>{
         const ability = document.createElement("p");
         ability.textContent = ab.ability.name;
@@ -132,6 +128,6 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
         const audio = new Audio('swish.wav');
         audio.play();
         detallesPoke.style.visibility = "visible"
-        mostrarDetalles(detallesPokemon, tipo, color, detallesPoke);
+        mostrarDetalles(pokemon, tipo, color, detallesPoke);
       });
 }
