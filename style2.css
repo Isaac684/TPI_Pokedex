@@ -265,7 +265,7 @@ nav a:hover {
         top: 50%;
     }
     .info-card p {
-        font-size: 18px; 
+        font-size: 10px; 
     }
 }
 
@@ -305,9 +305,10 @@ nav a:hover {
 }
 
 @media (max-width: 1080px) {
-    .container2 {
+    .container2 p {
         max-width: 100%;
         padding: 10px;
+        font-size: 8px;
     }
 
     .featured-pokemon {
