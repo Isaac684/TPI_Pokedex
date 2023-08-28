@@ -8,7 +8,7 @@ const Pokedex = (function () {
   let mostrado = false;
 
   async function cargarDatos() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
     const data = await response.json();
     return data.results;
   }
