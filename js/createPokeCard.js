@@ -7,7 +7,7 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       pokemon.types.forEach(tipo =>{
         tipoPokemon += tipo.type.name+", ";
       })
-      console.log(tipoPokemon)
+
       tipoPokemon = tipoPokemon.slice(0,-2);
       const tipopoke = pokemon.types[0].type.name;
 
@@ -99,28 +99,37 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       pokemonName.textContent = pokemon.name;
 
       const pokemonAltura = document.createElement('p');
-      pokemonAltura.textContent = `Altura: ${pokemon.height/ 10} m`;
+      pokemonAltura.textContent = `${pokemon.height/ 10} m`;
 
       const pokemonPeso = document.createElement('p');
-      pokemonPeso.textContent = `Peso: ${pokemon.weight/10} kg`;
+      pokemonPeso.textContent = `${pokemon.weight/10} kg`;
 
       const pokemonTipo = document.createElement('p');
-      pokemonTipo.textContent = `Tipo: ${tipoPokemon}`;
-      const habilidadPoke = document.createElement("p");
-      habilidadPoke.textContent = "Habilidades:"
+      pokemonTipo.textContent = `${tipoPokemon}`;
+
+      const divData = document.createElement('div')
+      divData.className = 'divDataPokemon'
+      
+      const ability = document.createElement("p");
+
 
       cartaPoke.appendChild(pokemonimg);
       cartaPoke.appendChild(pokemonName);
-      cartaPoke.appendChild(pokemonAltura)
-      cartaPoke.appendChild(pokemonPeso)
-      cartaPoke.appendChild(pokemonTipo)
-      cartaPoke.appendChild(habilidadPoke);
+      divData.appendChild(pokemonTipo)
+      divData.appendChild(pokemonAltura)
+      divData.appendChild(pokemonPeso)
+      cartaPoke.appendChild(divData);
+      divData.appendChild(ability)
 
       const abilities = pokemon.abilities;
+      let bandera = false
       abilities.forEach(ab =>{
-        const ability = document.createElement("p");
-        ability.textContent = ab.ability.name;
-        cartaPoke.appendChild(ability);
+        if (bandera) {
+          ability.textContent += `, ${ab.ability.name}`;
+        }else{
+          ability.textContent += ab.ability.name;
+          bandera = true
+        }
       })
 
 
