@@ -3,9 +3,15 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
     let tipo, color;
       const cartaPoke = document.createElement('div');
       cartaPoke.className = 'pokemon-card';
-      const tipoPokemon = pokemon.types[0].type.name;
+      let tipoPokemon="";
+      pokemon.types.forEach(tipo =>{
+        tipoPokemon += tipo.type.name+", ";
+      })
+      console.log(tipoPokemon)
+      tipoPokemon = tipoPokemon.slice(0,-2);
+      const tipopoke = pokemon.types[0].type.name;
 
-      switch (tipoPokemon) {
+      switch (tipopoke) {
         case 'grass':
           cartaPoke.style.backgroundColor = '#78C850';
           tipo = "Planta";
@@ -99,7 +105,7 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       pokemonPeso.textContent = `Peso: ${pokemon.weight/10} kg`;
 
       const pokemonTipo = document.createElement('p');
-      pokemonTipo.textContent = `Tipo: ${tipo}`;
+      pokemonTipo.textContent = `Tipo: ${tipoPokemon}`;
       const habilidadPoke = document.createElement("p");
       habilidadPoke.textContent = "Habilidades:"
 
