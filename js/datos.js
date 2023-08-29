@@ -15,10 +15,12 @@ const Pokedex = (function () {
   async function cartaPokemon() {
     
     const dataPokemon = await cargarDatos();
-    let jsonPokemon = await loadPokemon(dataPokemon);
-    jsonPokemon.forEach(poke =>{
+    let pokemonObject = await loadPokemon(dataPokemon);
+    pokemonObject.forEach(poke =>{
       createPokeCard(poke,contenedorPoke,detallesPoke);
     });
+
+    
     
     //Se llama al input que contendra la informacion de busqueda
     const txtBusqueda = document.getElementById("txtBuscar");
@@ -27,12 +29,12 @@ const Pokedex = (function () {
       if(txtBusqueda.value == ""){
         contenedorPoke.innerHTML = "";
         resultado = [];
-        jsonPokemon.forEach(poke =>{
+        pokemonObject.forEach(poke =>{
           createPokeCard(poke,contenedorPoke,detallesPoke);
         });
       }else{
         resultado = [];
-        resultado = pokeSearch(txtBusqueda.value, jsonPokemon);//Se le mandan los datos a la funcion pokeSearch para que este nos devuelva un arreglo con los elementos encontrados
+        resultado = pokeSearch(txtBusqueda.value, pokemonObject);//Se le mandan los datos a la funcion pokeSearch para que este nos devuelva un arreglo con los elementos encontrados
         contenedorPoke.innerHTML = "";
         if(resultado.length >0 && resultado.length != 150){//Se verifica si hay elementos
           //En el caso de que hayan elementos de recorren y se crean sus cartas para que sean mostradas
@@ -64,7 +66,6 @@ const Pokedex = (function () {
 })();
 
 Pokedex.cartaPokemon();
-
 
 
 

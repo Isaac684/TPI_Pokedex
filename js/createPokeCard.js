@@ -1,6 +1,7 @@
 import { mostrarDetalles } from "./showDetail.js";
 export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
     let tipo, color;
+    console.log(pokemon.constructor.name);
       const cartaPoke = document.createElement('div');
       cartaPoke.className = 'pokemon-card';
       let tipoPokemon="";
