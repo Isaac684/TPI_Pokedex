@@ -95,9 +95,9 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       pokemonimg.src = pokemon.sprites.front_default;
       pokemonimg.alt = pokemon.name;
 
-      const pokemonName = document.createElement('p');
-      pokemonName.setAttribute("data-poke","name-poke");
-      pokemonName.textContent = pokemon.name;
+      const pokemonName = document.createElement('div');
+      pokemonName.className = 'nombrePokemon';
+      pokemonName.innerHTML = `<img src="IMG/icons8-pokeball-24.png" alt="" srcset="" style="padding: .7rem;"> ${pokemon.name}`
 
       const pokemonAltura = document.createElement('p');
       pokemonAltura.textContent = `${pokemon.height/ 10} m`;
@@ -105,22 +105,23 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       const pokemonPeso = document.createElement('p');
       pokemonPeso.textContent = `${pokemon.weight/10} kg`;
 
-      const pokemonTipo = document.createElement('p');
+      const pokemonTipo = document.createElement('div');
       pokemonTipo.textContent = `${tipoPokemon}`;
+      pokemonTipo.classList = 'tipoPokemon'
 
       const divData = document.createElement('div')
       divData.className = 'divDataPokemon'
       
       const ability = document.createElement("p");
+      ability.style.textTransform = 'capitalize'
 
-
-      cartaPoke.appendChild(pokemonimg);
       cartaPoke.appendChild(pokemonName);
-      divData.appendChild(pokemonTipo)
-      divData.appendChild(pokemonAltura)
-      divData.appendChild(pokemonPeso)
+      cartaPoke.appendChild(pokemonTipo)
+      cartaPoke.appendChild(pokemonimg);
+      cartaPoke.appendChild(pokemonAltura)
+      cartaPoke.appendChild(pokemonPeso)
       cartaPoke.appendChild(divData);
-      divData.appendChild(ability)
+      cartaPoke.appendChild(ability)
 
       const abilities = pokemon.abilities;
       let bandera = false
