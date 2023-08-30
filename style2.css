@@ -201,7 +201,26 @@ nav a:hover {
     }
   }
 
-  
+  @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.featured-pokemon {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+
+
+
+
+
 
 
 @media (min-width: 1025px) and (max-width: 1366px) {
