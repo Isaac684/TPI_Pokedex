@@ -99,11 +99,11 @@ export async function createPokeCard(pokemon, contenedorPoke, detallesPoke){
       pokemonName.className = 'nombrePokemon';
       pokemonName.innerHTML = `<img src="IMG/icons8-pokeball-24.png" alt="" srcset="" style="padding: .7rem;"> ${pokemon.name}`
 
-      const pokemonAltura = document.createElement('p');
-      pokemonAltura.textContent = `${pokemon.height/ 10} m`;
+      const pokemonAltura = document.createElement('div');
+      pokemonAltura.innerHTML = `<img src="IMG/altura.png" alt="" srcset="" style="filter: invert(100%)">  ${pokemon.height/ 10} m`
 
-      const pokemonPeso = document.createElement('p');
-      pokemonPeso.textContent = `${pokemon.weight/10} kg`;
+      const pokemonPeso = document.createElement('div');
+      pokemonPeso.innerHTML = `<img src="IMG/peso.png" alt="" srcset="" style="filter: invert(100%)"> ${pokemon.weight/10} kg`;
 
       const pokemonTipo = document.createElement('div');
       pokemonTipo.textContent = `${tipoPokemon}`;
