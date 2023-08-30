@@ -12,8 +12,8 @@ export function mostrarDetalles(pokemon, tipo, color, detallesPoke) {
       <div id="infoContainer" style=" margin-top: 5px;">
       <button id="opcion1" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Stats</button>
       <button id="opcion2" class="opcion" style=" color: white; padding: 5px 10px; border: none; cursor: pointer;">Moves</button>
-        <div id="Info1" style="flex: 1; padding: 10px;"></div>
-        <div id="Info2" style="flex: 1; padding: 10px;"></div>
+        <div id="Info1" style="flex: 3; margin-top: 10px;"></div>
+        <div id="Info2" style="flex: 3; margin-top: 10px;"></div>
       </div>
     `;
   

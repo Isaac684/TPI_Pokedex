@@ -291,7 +291,6 @@ button:hover {
 
 .info-stat{
 background-color: #2d2d2d;
-width: 100px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 text-align: justify;
 width: var(--total);
@@ -376,7 +375,8 @@ border: 1px solid #ccc;
 
 .stat-line {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  gap: .3rem;
+  grid-template-columns: 3fr 2fr 3fr;
   align-items: center; 
 }
 .stat-line-move {
@@ -392,10 +392,5 @@ border: 1px solid #ccc;
   border: none; 
 }
 
-
-.stat-label,
-.stat-value {
-  width: 100px; 
-}
 
 
